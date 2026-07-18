@@ -54,14 +54,13 @@ h2 {
 .main-nav ul {
   list-style: none;
   display: flex;
-  flex-wrap: nowrap; /* ← 追加：横並びを強制 */
+  flex-wrap: nowrap;
   overflow-x: auto;
   gap: 12px;
   padding: 10px;
   margin: 0;
-  white-space: nowrap; /* ← 追加：文字の折り返しを防ぐ */
+  white-space: nowrap;
 }
-
 
 .main-nav a {
   text-decoration: none;
@@ -129,25 +128,46 @@ h2 {
   font-size: 18px;
 }
 
-/* 雲の演出（ふわっと出る） */
-.cloud-popup {
-  position: absolute;
-  width: 180px;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 1.2s ease;
+/* ===== アコーディオン（料理の折りたたみ） ===== */
+
+.accordion {
+  margin: 20px 0;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  overflow: hidden;
 }
 
-.cloud-popup.show {
-  opacity: 0.8;
-  transform: translateY(0);
-}
-
-/* 木のシルエット（背景） */
-.tree-bg {
-  position: absolute;
-  bottom: 0;
+.accordion-header {
   width: 100%;
-  opacity: 0.15;
-  pointer-events: none;
+  text-align: left;
+  padding: 16px 20px;
+  font-size: 1.1rem;
+  background: #f7f9fc;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  transition: background 0.3s;
 }
+
+.accordion-header:hover {
+  background: #eef4ff;
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  background: #ffffff;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+  opacity: 0;
+}
+
+.accordion-content.open {
+  padding: 20px;
+  opacity: 1;
+}
+
+
+
+
