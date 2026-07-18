@@ -14,6 +14,9 @@ body {
   margin: 0;
   position: relative;
   overflow: hidden;
+
+  /* ← ここが問題だったので opacity は削除 */
+  transform: translateY(20px); /* ふわっと動くための初期位置だけ残す */
 }
 
 /* タイトル */
@@ -167,18 +170,10 @@ h2 {
   padding: 20px;
   opacity: 1;
 }
+
 /* セクションふわっと表示用 */
 .fade-in {
   opacity: 1;
   transform: translateY(0);
   transition: opacity 1s ease, transform 1s ease;
 }
-
-.section {
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-
-
-
