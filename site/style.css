@@ -1,0 +1,153 @@
+/* 全体の基本設定 */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans JP", sans-serif;
+  background: #f7f9fc;
+  color: #333;
+  line-height: 1.7;
+}
+
+/* セクション共通 */
+.section {
+  padding: 40px 20px;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* タイトル */
+h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #2a4d6b;
+}
+
+/* ヒーロー（トップ） */
+.hero {
+  height: 300px;
+  background: linear-gradient(#cfe8ff, #ffffff);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay {
+  background: rgba(255, 255, 255, 0.6);
+  padding: 20px 30px;
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+  text-align: center;
+}
+
+/* 目次ナビ */
+.main-nav {
+  background: #ffffffcc;
+  backdrop-filter: blur(4px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid #ddd;
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: nowrap; /* ← 追加：横並びを強制 */
+  overflow-x: auto;
+  gap: 12px;
+  padding: 10px;
+  margin: 0;
+  white-space: nowrap; /* ← 追加：文字の折り返しを防ぐ */
+}
+
+
+.main-nav a {
+  text-decoration: none;
+  color: #2a4d6b;
+  font-weight: bold;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+.main-nav a:hover {
+  background: #e3f0ff;
+}
+
+/* 背景テーマ（空・雲・森・木・海） */
+.section-sky {
+  background: linear-gradient(#dff0ff, #ffffff);
+}
+
+.section-clouds {
+  background: linear-gradient(#ffffff, #eef7ff);
+}
+
+.section-forest {
+  background: linear-gradient(#e8f7e8, #ffffff);
+}
+
+.section-trees {
+  background: linear-gradient(#f0fff0, #ffffff);
+}
+
+.section-sea {
+  background: linear-gradient(#dff7ff, #ffffff);
+}
+
+.section-white {
+  background: #ffffff;
+}
+
+/* テーブル */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table th, .table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.table th {
+  background: #e3f0ff;
+}
+
+/* 参加者一覧 */
+.members-list li {
+  margin-bottom: 6px;
+}
+
+/* 持ち物リスト */
+.packing-list li {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+/* 雲の演出（ふわっと出る） */
+.cloud-popup {
+  position: absolute;
+  width: 180px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1.2s ease;
+}
+
+.cloud-popup.show {
+  opacity: 0.8;
+  transform: translateY(0);
+}
+
+/* 木のシルエット（背景） */
+.tree-bg {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  opacity: 0.15;
+  pointer-events: none;
+}

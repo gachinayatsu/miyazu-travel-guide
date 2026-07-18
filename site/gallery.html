@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>写真ギャラリー</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ヒーロー（トップ） -->
+  <header class="hero">
+    <div class="hero-overlay">
+      <h1>写真ギャラリー</h1>
+      <p>旅行中に撮った写真をみんなで共有できます。</p>
+      <p>Googleフォトの共有アルバムを下に貼ってください。</p>
+    </div>
+  </header>
+
+  <!-- メインコンテンツ -->
+  <section class="section section-clouds">
+    <h2>Googleフォト共有アルバム</h2>
+    <p>
+      旅行後に Googleフォトで共有アルバムを作成し、  
+      「リンクをコピー」して下のボタンに貼り付けてください。
+    </p>
+
+    <!-- 共有アルバムリンク（後で差し替え） -->
+    <div class="gallery-card">
+      <p>ここに共有アルバムのURLを貼ってください：</p>
+      <p>
+        <a href="#" id="album-link" target="_blank">
+          Googleフォト共有アルバム（未設定）
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <!-- サムネイル一覧（必要なら後で追加可能） -->
+  <section class="section section-sky">
+    <h2>サムネイル一覧（任意）</h2>
+    <p>必要であれば、ここに写真のサムネイルを追加できます。</p>
+
+    <div class="thumbnail-container">
+      <!-- 後で画像を追加可能 -->
+      <!-- 例：
+      <img src="assets/gallery/photo1.jpg" class="thumbnail">
+      -->
+    </div>
+  </section>
+
+  <!-- メインページへ戻る -->
+  <section class="section section-white">
+    <h2>旅行しおりに戻る</h2>
+    <p><a href="index.html">→ メインページへ戻る</a></p>
+  </section>
+
+</body>
+</html>
