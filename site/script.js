@@ -1,55 +1,60 @@
-/* スムーススクロール */
+/* ============================
+   スムーススクロール
+============================ */
+
 document.querySelectorAll('a[href^="#"]').forEach(link => {
-  link.addEventListener("click", e => {
+  link.addEventListener("click", function (e) {
     e.preventDefault();
 
-    const target = document.querySelector(link.getAttribute("href"));
+    const target = document.querySelector(this.getAttribute("href"));
 
     if (target) {
       target.scrollIntoView({
-        behavior: "smooth"
+        behavior: "smooth",
+        block: "start"
       });
     }
   });
 });
 
+/* ============================
+   セクションのふわっと表示
+============================ */
 
-/* セクションのふわっと表示 */
-
-const fadeTargets = document.querySelectorAll(".section");
+const sections = document.querySelectorAll(".section");
 
 if ("IntersectionObserver" in window) {
 
-  const observer = new IntersectionObserver(entries => {
+  const observer = new IntersectionObserver((entries) => {
 
-    entries.forEach(entry => {
+    entries.forEach((entry) => {
 
       if (entry.isIntersecting) {
-
         entry.target.classList.add("fade-in");
-
         observer.unobserve(entry.target);
-
       }
 
     });
 
   }, {
-    threshold:0.2
+    threshold: 0.15
   });
 
-  fadeTargets.forEach(target => observer.observe(target));
+  sections.forEach((section) => {
+    observer.observe(section);
+  });
 
-}else{
+} else {
 
-  fadeTargets.forEach(target=>{
-    target.classList.add("fade-in");
+  sections.forEach((section) => {
+    section.classList.add("fade-in");
   });
 
 }
 
-
-/* 持ち物リスト */
+/* ============================
+   持ち物リスト
+============================ */
 
 const packingItems = [
   "財布",
@@ -66,65 +71,65 @@ const packingItems = [
   "お菓子"
 ];
 
-const packingList=document.getElementById("packing-list");
+const packingList = document.getElementById("packing-list");
 
-if(packingList){
+if (packingList) {
 
-packingItems.forEach((item,index)=>{
+  packingItems.forEach((item, index) => {
 
-const li=document.createElement("li");
+    const li = document.createElement("li");
 
-const checkbox=document.createElement("input");
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.id = "item-" + index;
 
-checkbox.type="checkbox";
+    if (localStorage.getItem("packing-" + index) === "true") {
+      checkbox.checked = true;
+    }
 
-checkbox.id=`item-${index}`;
+    checkbox.addEventListener("change", function () {
+      localStorage.setItem("packing-" + index, this.checked);
+    });
 
-checkbox.checked=localStorage.getItem(`packing-${index}`)==="true";
+    const label = document.createElement("label");
+    label.htmlFor = checkbox.id;
+    label.textContent = item;
 
-checkbox.addEventListener("change",()=>{
+    li.appendChild(checkbox);
+    li.appendChild(label);
 
-localStorage.setItem(`packing-${index}`,checkbox.checked);
+    packingList.appendChild(li);
 
-});
-
-const label=document.createElement("label");
-
-label.htmlFor=checkbox.id;
-
-label.textContent=item;
-
-li.appendChild(checkbox);
-
-li.appendChild(label);
-
-packingList.appendChild(li);
-
-});
+  });
 
 }
 
+/* ============================
+   アコーディオン
+============================ */
 
-/* アコーディオン */
+const accordions = document.querySelectorAll(".accordion-header");
 
-document.querySelectorAll(".accordion-header").forEach(header=>{
+accordions.forEach((header) => {
 
-header.addEventListener("click",()=>{
+  header.addEventListener("click", function () {
 
-const content=header.nextElementSibling;
+    const content = this.nextElementSibling;
 
-content.classList.toggle("open");
+    if (!content) return;
 
-if(content.classList.contains("open")){
+    if (content.classList.contains("open")) {
 
-content.style.maxHeight=content.scrollHeight+"px";
+      content.classList.remove("open");
+      content.style.maxHeight = null;
 
-}else{
+    } else {
 
-content.style.maxHeight=null;
+      content.classList.add("open");
+      content.style.maxHeight = content.scrollHeight + "px";
 
-}
+    }
 
-});
+  });
 
 });
