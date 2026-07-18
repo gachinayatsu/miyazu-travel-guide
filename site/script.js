@@ -1,32 +1,56 @@
-/* ============================
-   スムーススクロール
-============================ */
+/* スムーススクロール */
 document.querySelectorAll('a[href^="#"]').forEach(link => {
-  link.addEventListener('click', e => {
+  link.addEventListener("click", e => {
     e.preventDefault();
-    const target = document.querySelector(link.getAttribute('href'));
-    target.scrollIntoView({ behavior: 'smooth' });
+
+    const target = document.querySelector(link.getAttribute("href"));
+
+    if (target) {
+      target.scrollIntoView({
+        behavior: "smooth"
+      });
+    }
   });
 });
 
-/* ============================
-   セクションのふわっと表示
-============================ */
-const fadeTargets = document.querySelectorAll('.section');
 
-const fadeObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('fade-in');
-    }
+/* セクションのふわっと表示 */
+
+const fadeTargets = document.querySelectorAll(".section");
+
+if ("IntersectionObserver" in window) {
+
+  const observer = new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+      if (entry.isIntersecting) {
+
+        entry.target.classList.add("fade-in");
+
+        observer.unobserve(entry.target);
+
+      }
+
+    });
+
+  }, {
+    threshold:0.2
   });
-}, { threshold: 0.2 });
 
-fadeTargets.forEach(target => fadeObserver.observe(target));
+  fadeTargets.forEach(target => observer.observe(target));
 
-/* ============================
-   持ち物リスト（チェック式）
-============================ */
+}else{
+
+  fadeTargets.forEach(target=>{
+    target.classList.add("fade-in");
+  });
+
+}
+
+
+/* 持ち物リスト */
+
 const packingItems = [
   "財布",
   "スマホ",
@@ -42,46 +66,65 @@ const packingItems = [
   "お菓子"
 ];
 
-const packingList = document.getElementById("packing-list");
+const packingList=document.getElementById("packing-list");
 
-if (packingList) {
-  packingItems.forEach((item, index) => {
-    const li = document.createElement("li");
+if(packingList){
 
-    const checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    checkbox.id = `item-${index}`;
+packingItems.forEach((item,index)=>{
 
-    const saved = localStorage.getItem(`packing-${index}`);
-    if (saved === "true") checkbox.checked = true;
+const li=document.createElement("li");
 
-    checkbox.addEventListener("change", () => {
-      localStorage.setItem(`packing-${index}`, checkbox.checked);
-    });
+const checkbox=document.createElement("input");
 
-    const label = document.createElement("label");
-    label.htmlFor = checkbox.id;
-    label.textContent = item;
+checkbox.type="checkbox";
 
-    li.appendChild(checkbox);
-    li.appendChild(label);
-    packingList.appendChild(li);
-  });
+checkbox.id=`item-${index}`;
+
+checkbox.checked=localStorage.getItem(`packing-${index}`)==="true";
+
+checkbox.addEventListener("change",()=>{
+
+localStorage.setItem(`packing-${index}`,checkbox.checked);
+
+});
+
+const label=document.createElement("label");
+
+label.htmlFor=checkbox.id;
+
+label.textContent=item;
+
+li.appendChild(checkbox);
+
+li.appendChild(label);
+
+packingList.appendChild(li);
+
+});
+
 }
 
-/* ============================
-   アコーディオン（料理の折りたたみ）
-============================ */
-document.querySelectorAll('.accordion-header').forEach(header => {
-  header.addEventListener('click', () => {
-    const content = header.nextElementSibling;
 
-    if (content.classList.contains('open')) {
-      content.classList.remove('open');
-      content.style.maxHeight = null;
-    } else {
-      content.classList.add('open');
-      content.style.maxHeight = content.scrollHeight + "px";
-    }
-  });
+/* アコーディオン */
+
+document.querySelectorAll(".accordion-header").forEach(header=>{
+
+header.addEventListener("click",()=>{
+
+const content=header.nextElementSibling;
+
+content.classList.toggle("open");
+
+if(content.classList.contains("open")){
+
+content.style.maxHeight=content.scrollHeight+"px";
+
+}else{
+
+content.style.maxHeight=null;
+
+}
+
+});
+
 });

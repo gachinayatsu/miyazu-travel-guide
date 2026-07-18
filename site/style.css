@@ -1,4 +1,7 @@
-/* 全体の基本設定 */
+/* ============================
+   全体の基本設定
+============================ */
+
 body {
   margin: 0;
   padding: 0;
@@ -8,43 +11,58 @@ body {
   line-height: 1.7;
 }
 
-/* セクション共通 */
+/* ============================
+   セクション共通
+============================ */
+
 .section {
   padding: 40px 20px;
   margin: 0;
   position: relative;
   overflow: hidden;
 
-  /* ← ここが問題だったので opacity は削除 */
-  transform: translateY(20px); /* ふわっと動くための初期位置だけ残す */
+  transform: translateY(20px);
+  transition: transform 0.8s ease;
 }
 
-/* タイトル */
+.section.fade-in {
+  transform: translateY(0);
+}
+
+/* ============================
+   タイトル
+============================ */
+
 h2 {
   font-size: 28px;
   margin-bottom: 20px;
   color: #2a4d6b;
 }
 
-/* ヒーロー（トップ） */
+/* ============================
+   ヒーロー
+============================ */
+
 .hero {
   height: 300px;
   background: linear-gradient(#cfe8ff, #ffffff);
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .hero-overlay {
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255,255,255,.6);
   padding: 20px 30px;
   border-radius: 12px;
   backdrop-filter: blur(6px);
   text-align: center;
 }
 
-/* 目次ナビ */
+/* ============================
+   ナビ
+============================ */
+
 .main-nav {
   background: #ffffffcc;
   backdrop-filter: blur(4px);
@@ -59,10 +77,10 @@ h2 {
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
+  white-space: nowrap;
   gap: 12px;
   padding: 10px;
   margin: 0;
-  white-space: nowrap;
 }
 
 .main-nav a {
@@ -77,32 +95,38 @@ h2 {
   background: #e3f0ff;
 }
 
-/* 背景テーマ（空・雲・森・木・海） */
+/* ============================
+   セクション背景
+============================ */
+
 .section-sky {
-  background: linear-gradient(#dff0ff, #ffffff);
+  background: linear-gradient(#dff0ff,#ffffff);
 }
 
 .section-clouds {
-  background: linear-gradient(#ffffff, #eef7ff);
+  background: linear-gradient(#ffffff,#eef7ff);
 }
 
 .section-forest {
-  background: linear-gradient(#e8f7e8, #ffffff);
+  background: linear-gradient(#e8f7e8,#ffffff);
 }
 
 .section-trees {
-  background: linear-gradient(#f0fff0, #ffffff);
+  background: linear-gradient(#f0fff0,#ffffff);
 }
 
 .section-sea {
-  background: linear-gradient(#dff7ff, #ffffff);
+  background: linear-gradient(#dff7ff,#ffffff);
 }
 
 .section-white {
   background: #ffffff;
 }
 
-/* テーブル */
+/* ============================
+   テーブル
+============================ */
+
 .table {
   width: 100%;
   border-collapse: collapse;
@@ -111,7 +135,8 @@ h2 {
   overflow: hidden;
 }
 
-.table th, .table td {
+.table th,
+.table td {
   padding: 12px;
   border-bottom: 1px solid #ddd;
 }
@@ -120,24 +145,32 @@ h2 {
   background: #e3f0ff;
 }
 
-/* 参加者一覧 */
+/* ============================
+   参加者
+============================ */
+
 .members-list li {
   margin-bottom: 6px;
 }
 
-/* 持ち物リスト */
+/* ============================
+   持ち物
+============================ */
+
 .packing-list li {
   margin-bottom: 10px;
   font-size: 18px;
 }
 
-/* ===== アコーディオン（料理の折りたたみ） ===== */
+/* ============================
+   アコーディオン
+============================ */
 
 .accordion {
   margin: 20px 0;
   border-radius: 12px;
   background: #ffffff;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 6px rgba(0,0,0,.08);
   overflow: hidden;
 }
 
@@ -145,12 +178,11 @@ h2 {
   width: 100%;
   text-align: left;
   padding: 16px 20px;
-  font-size: 1.1rem;
+  font-size: 18px;
   background: #f7f9fc;
   border: none;
   cursor: pointer;
-  outline: none;
-  transition: background 0.3s;
+  transition: background .3s;
 }
 
 .accordion-header:hover {
@@ -162,18 +194,16 @@ h2 {
   overflow: hidden;
   padding: 0 20px;
   background: #ffffff;
-  transition: max-height 0.4s ease, padding 0.3s ease;
   opacity: 0;
+
+  transition:
+    max-height .4s ease,
+    padding .3s ease,
+    opacity .3s ease;
 }
 
 .accordion-content.open {
+  max-height: 1000px;
   padding: 20px;
   opacity: 1;
-}
-
-/* セクションふわっと表示用 */
-.fade-in {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 1s ease, transform 1s ease;
 }
