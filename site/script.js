@@ -25,52 +25,6 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   fadeTargets.forEach(target => fadeObserver.observe(target));
   
   /* ============================
-     雲のポップアップ演出
-  ============================ */
-  const cloudImages = [
-    "assets/clouds/cloud1.png",
-    "assets/clouds/cloud2.png",
-    "assets/clouds/cloud3.png"
-  ];
-  
-  function createCloud(section) {
-    const img = document.createElement("img");
-    img.src = cloudImages[Math.floor(Math.random() * cloudImages.length)];
-    img.classList.add("cloud-popup");
-  
-    img.style.left = `${Math.random() * 70 + 10}%`;
-    img.style.top = `${Math.random() * 40 + 10}px`;
-  
-    section.appendChild(img);
-  
-    setTimeout(() => {
-      img.classList.add("show");
-    }, 200);
-  }
-  
-  const cloudObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        createCloud(entry.target);
-      }
-    });
-  }, { threshold: 0.4 });
-  
-  document.querySelectorAll('.section').forEach(sec => cloudObserver.observe(sec));
-  
-  /* ============================
-     木のパララックス演出
-  ============================ */
-  window.addEventListener("scroll", () => {
-    const trees = document.querySelectorAll(".tree-bg");
-    trees.forEach(tree => {
-      const speed = 0.15;
-      const offset = window.scrollY * speed;
-      tree.style.transform = `translateY(${offset}px)`;
-    });
-  });
-  
-  /* ============================
      持ち物リスト（チェック式）
   ============================ */
   const packingItems = [
