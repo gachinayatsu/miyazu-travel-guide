@@ -56,6 +56,9 @@ if ("IntersectionObserver" in window) {
    持ち物リスト
 ============================ */
 
+/* ============================
+   持ち物リスト（共通）
+============================ */
 const packingItems = [
   "財布",
   "スマホ",
@@ -66,7 +69,6 @@ const packingItems = [
   "常備薬",
   "モバイルバッテリー",
   "身分証",
-  "ボードゲーム",
   "飲み物",
   "お菓子"
 ];
@@ -74,9 +76,7 @@ const packingItems = [
 const packingList = document.getElementById("packing-list");
 
 if (packingList) {
-
   packingItems.forEach((item, index) => {
-
     const li = document.createElement("li");
 
     const checkbox = document.createElement("input");
@@ -99,8 +99,72 @@ if (packingList) {
     li.appendChild(label);
 
     packingList.appendChild(li);
-
   });
+}
+
+/* ============================
+   三谷専用リスト（別枠）
+============================ */
+const mitaniItems = [
+  // ボードゲーム（担当）
+  "ボードゲーム",
+
+  // 共用品（購入品）
+  "虫刺されかゆみ止め",
+  "アルコールウェットティッシュ",
+  "虫除けスプレー（サラテクト）",
+  "使い捨て鍋",
+  "ジップロック",
+
+  // 調味料類（持参）
+  "味噌（小分け）",
+  "豆板醤（小分け）",
+  "砂糖（小分け）",
+  "練りからし（小分け）",
+  "塩（小瓶）",
+  "味の素（小瓶）",
+  "黒胡椒（小瓶）",
+  "ナツメグ（小瓶）",
+  "ハイミー（小瓶）",
+
+  // 料理道具
+  "おろし金",
+  "キッチンスケール",
+  "計量スプーン",
+  "新聞紙",
+  "温度計（揚げ物用）",
+  "ブンブンチョッパー"
+];
+
+const mitaniList = document.getElementById("mitani-list");
+
+if (mitaniList) {
+  mitaniItems.forEach((item, index) => {
+    const li = document.createElement("li");
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.id = "mitani-" + index;
+
+    if (localStorage.getItem("mitani-" + index) === "true") {
+      checkbox.checked = true;
+    }
+
+    checkbox.addEventListener("change", function () {
+      localStorage.setItem("mitani-" + index, this.checked);
+    });
+
+    const label = document.createElement("label");
+    label.htmlFor = checkbox.id;
+    label.textContent = item;
+
+    li.appendChild(checkbox);
+    li.appendChild(label);
+
+    mitaniList.appendChild(li);
+  });
+}
+
 
 }
 
