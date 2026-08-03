@@ -154,6 +154,96 @@ if (mitaniList) {
   });
 }
 
+/* ============================
+   設定
+============================ */
+const PEOPLE = 7;
+
+// 共用品（使い捨て鍋なし）
+const commonItems = {
+  itch: 799,
+  wet: 382,
+  spray: 555,
+  zip: 668
+};
+
+// マーダーミステリー
+const murderMystery = 3960;
+
+// 宿泊・レンタカー
+const lodging = 175605;
+const rentalCar = 46860;
+
+// 交通費（往復）
+const shinkansen = 9520;
+const tokkyu = 6160;
+const miyazuLocal = 400;
+
+// 乗車券（往復）
+const ticketNormal = 12600;
+const ticketHalf = 6300;
+
+/* ============================
+   計算
+============================ */
+
+// 共用品合計
+const commonTotal = Object.values(commonItems).reduce((a, b) => a + b, 0);
+const commonPerPerson = Math.floor(commonTotal / PEOPLE);
+
+// マーダーミステリー
+const murderPerPerson = Math.floor(murderMystery / PEOPLE);
+
+// 共通費用（交通費＋宿泊＋レンタカー＋共用品＋マダミス）
+const baseCost =
+  shinkansen +
+  tokkyu +
+  miyazuLocal +
+  Math.floor(lodging / PEOPLE) +
+  Math.floor(rentalCar / PEOPLE) +
+  commonPerPerson +
+  murderPerPerson;
+
+/* ============================
+   乗車券 2パターン
+============================ */
+
+// パターン①：1人が半額を丸取り
+const pattern1_mitani = baseCost + ticketHalf;
+const pattern1_special = baseCost + ticketHalf;
+const pattern1_others = baseCost + ticketNormal;
+
+// パターン②：6人で均等割り
+const discountTotal = ticketNormal * 7 - (ticketHalf * 2 + ticketNormal * 5); // 12,600円
+const discountPerPerson = Math.floor(discountTotal / 6); // 2,100円
+
+const pattern2_mitani = baseCost + ticketHalf;
+const pattern2_others = baseCost + (ticketNormal - discountPerPerson);
+
+/* ============================
+   HTMLへ反映
+============================ */
+
+function setText(id, value) {
+  const el = document.getElementById(id);
+  if (el) el.textContent = value.toLocaleString() + "円";
+}
+
+// 共用品
+setText("common-total", commonTotal);
+setText("common-per", commonPerPerson);
+
+// マーダーミステリー
+setText("murder-total", murderMystery);
+setText("murder-per", murderPerPerson);
+
+// 最終総額（2パターン）
+setText("p1-mitani", pattern1_mitani);
+setText("p1-special", pattern1_special);
+setText("p1-others", pattern1_others);
+
+setText("p2-mitani", pattern2_mitani);
+setText("p2-others", pattern2_others);
 
 
 /* ============================

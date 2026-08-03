@@ -474,39 +474,39 @@
         <td>3日間（7人割り）</td>
       </tr>
 
-      <tr>
-        <td>その他（共用品）</td>
-        <td>4,383円</td>
-        <td>626円</td>
-        <td>
-          虫刺されかゆみ止め 799円、アルコールウェットティッシュ 382円、<br>
-          サラテクト 555円、使い捨て鍋 1,979円、ジップロック 668円
-        </td>
-      </tr>
+<tr>
+  <td>その他（共用品）</td>
+  <td id="common-total"></td>   <!-- ← 合計金額 -->
+  <td id="common-per"></td>     <!-- ← 一人あたり -->
+  <td>
+    虫刺されかゆみ止め 799円、アルコールウェットティッシュ 382円、<br>
+    サラテクト 555円、ジップロック 668円
+  </td>
+</tr>
 
-      <tr>
-        <td>マーダーミステリー</td>
-        <td>3,960円</td>
-        <td>565円</td>
-        <td>7人割り</td>
-      </tr>
+ <tr>
+  <td>マーダーミステリー</td>
+  <td id="murder-total"></td>   <!-- ← 合計金額 -->
+  <td id="murder-per"></td>     <!-- ← 一人あたり -->
+  <td>7人割り</td>
+</tr>
 
       <!-- ★ 最後の行：一人あたり総額（2パターン） -->
-      <tr>
-        <td><strong>一人あたり総額（2パターン）</strong></td>
-        <td>--</td>
-        <td>
-          <strong>パターン①（1人が半額を丸取り）</strong><br>
-          三谷：55,351円<br>
-          お得な1人：55,351円<br>
-          他5人：61,651円<br><br>
+<tr>
+  <td><strong>一人あたり総額（2パターン）</strong></td>
+  <td>--</td>
+  <td>
+    <strong>パターン①（1人が半額を丸取り）</strong><br>
+    三谷：<span id="p1-mitani"></span><br>
+    お得な1人：<span id="p1-special"></span><br>
+    他5人：<span id="p1-others"></span><br><br>
 
-          <strong>パターン②（6人で均等割り）</strong><br>
-          三谷：55,351円<br>
-          他6人：60,601円
-        </td>
-        <td>乗車券の割引方法による2パターンの総額</td>
-      </tr>
+    <strong>パターン②（6人で均等割り）</strong><br>
+    三谷：<span id="p2-mitani"></span><br>
+    他6人：<span id="p2-others"></span>
+  </td>
+  <td>乗車券の割引方法による2パターンの総額</td>
+</tr>
 
     </tbody>
   </table>
