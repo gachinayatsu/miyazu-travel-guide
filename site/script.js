@@ -5,14 +5,9 @@
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener("click", function (e) {
     e.preventDefault();
-
     const target = document.querySelector(this.getAttribute("href"));
-
     if (target) {
-      target.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   });
 });
@@ -24,37 +19,24 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 const sections = document.querySelectorAll(".section");
 
 if ("IntersectionObserver" in window) {
-
   const observer = new IntersectionObserver((entries) => {
-
     entries.forEach((entry) => {
-
       if (entry.isIntersecting) {
         entry.target.classList.add("fade-in");
         observer.unobserve(entry.target);
       }
-
     });
+  }, { threshold: 0.15 });
 
-  }, {
-    threshold: 0.15
-  });
-
-  sections.forEach((section) => {
-    observer.observe(section);
-  });
-
+  sections.forEach((section) => observer.observe(section));
 } else {
-
-  sections.forEach((section) => {
-    section.classList.add("fade-in");
-  });
-
+  sections.forEach((section) => section.classList.add("fade-in"));
 }
 
 /* ============================
    持ち物リスト（共通）
 ============================ */
+
 const packingItems = [
   "財布",
   "スマホ",
@@ -74,7 +56,6 @@ const packingList = document.getElementById("packing-list");
 if (packingList) {
   packingItems.forEach((item, index) => {
     const li = document.createElement("li");
-
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.id = "item-" + index;
@@ -93,36 +74,19 @@ if (packingList) {
 
     li.appendChild(checkbox);
     li.appendChild(label);
-
     packingList.appendChild(li);
   });
 }
 
 /* ============================
-   三谷専用リスト（別枠）
+   三谷専用リスト（料理道具削除）
 ============================ */
+
 const mitaniItems = [
   "ボードゲーム",
   "虫刺されかゆみ止め",
   "アルコールウェットティッシュ",
-  "虫除けスプレー（サラテクト）",
-  "使い捨て鍋",
-  "ジップロック",
-  "味噌（小分け）",
-  "豆板醤（小分け）",
-  "砂糖（小分け）",
-  "練りからし（小分け）",
-  "塩（小瓶）",
-  "味の素（小瓶）",
-  "黒胡椒（小瓶）",
-  "ナツメグ（小瓶）",
-  "ハイミー（小瓶）",
-  "おろし金",
-  "キッチンスケール",
-  "計量スプーン",
-  "新聞紙",
-  "温度計（揚げ物用）",
-  "ブンブンチョッパー"
+  "虫除けスプレー（サラテクト）"
 ];
 
 const mitaniList = document.getElementById("mitani-list");
@@ -130,7 +94,6 @@ const mitaniList = document.getElementById("mitani-list");
 if (mitaniList) {
   mitaniItems.forEach((item, index) => {
     const li = document.createElement("li");
-
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.id = "mitani-" + index;
@@ -149,102 +112,108 @@ if (mitaniList) {
 
     li.appendChild(checkbox);
     li.appendChild(label);
-
     mitaniList.appendChild(li);
   });
 }
 
 /* ============================
-   設定
+   設定（最新）
 ============================ */
+
 const PEOPLE = 7;
 
-// 共用品（使い捨て鍋なし）
-const commonItems = {
-  itch: 799,
-  wet: 382,
+// 共用品（2つだけ）
+const commonItemsCost = {
   spray: 555,
-  zip: 668
+  wet: 382
 };
 
-// マーダーミステリー
-const murderMystery = 3960;
+// マーダーミステリー（奇想、アムネジア）
+const murderMystery = 3342;
 
 // 宿泊・レンタカー
 const lodging = 175605;
 const rentalCar = 46860;
 
-// 交通費（往復）
-const shinkansen = 9520;
-const tokkyu = 6160;
-const miyazuLocal = 400;
-
-// 乗車券（往復）
-const ticketNormal = 12600;
-const ticketHalf = 6300;
-
 /* ============================
-   計算
+   交通費（実費）
 ============================ */
 
-// 共用品合計
-const commonTotal = Object.values(commonItems).reduce((a, b) => a + b, 0);
+// 新幹線（片道）
+const shinkansen_oneway = 4760;
+
+// 特急はしだて（片道）
+const hashidate_oneway = 3080;
+
+// 乗車券（片道）
+const fare_normal_oneway = 6200;
+const fare_discount_oneway = 3100;
+
+// 往復計算
+const shinkansen_round = shinkansen_oneway * 2;
+const hashidate_round = hashidate_oneway * 2;
+
+const discountedPeople = 2;
+const normalPeople = PEOPLE - discountedPeople;
+
+// 乗車券合計（7人）
+const fare_total =
+  fare_normal_oneway * 2 * normalPeople +
+  fare_discount_oneway * 2 * discountedPeople;
+
+const fare_perPerson = Math.floor(fare_total / PEOPLE);
+
+/* ============================
+   共用品・マダミス
+============================ */
+
+const commonTotal = Object.values(commonItemsCost).reduce((a, b) => a + b, 0);
 const commonPerPerson = Math.floor(commonTotal / PEOPLE);
 
-// マーダーミステリー
 const murderPerPerson = Math.floor(murderMystery / PEOPLE);
 
-// 共通費用（交通費＋宿泊＋レンタカー＋共用品＋マダミス）
-const baseCost =
-  shinkansen +
-  tokkyu +
-  miyazuLocal +
-  Math.floor(lodging / PEOPLE) +
-  Math.floor(rentalCar / PEOPLE) +
-  commonPerPerson +
-  murderPerPerson;
-
 /* ============================
-   乗車券 2パターン
+   一人あたり交通費
 ============================ */
 
-// パターン①：1人が半額を丸取り
-const pattern1_mitani = baseCost + ticketHalf;
-const pattern1_special = baseCost + ticketHalf;
-const pattern1_others = baseCost + ticketNormal;
+const transportPerPerson =
+  shinkansen_round +
+  hashidate_round +
+  fare_perPerson;
 
-// パターン②：6人で均等割り
-const discountTotal = ticketNormal * 7 - (ticketHalf * 2 + ticketNormal * 5); // 12,600円
-const discountPerPerson = Math.floor(discountTotal / 6); // 2,100円
+/* ============================
+   最終一人あたり総額
+============================ */
 
-const pattern2_mitani = baseCost + ticketHalf;
-const pattern2_others = baseCost + (ticketNormal - discountPerPerson);
+const lodgingPerPerson = Math.floor(lodging / PEOPLE);
+const rentalPerPerson = Math.floor(rentalCar / PEOPLE);
+
+const totalPerPerson =
+  transportPerPerson +
+  lodgingPerPerson +
+  rentalPerPerson +
+  commonPerPerson +
+  murderPerPerson;
 
 /* ============================
    HTMLへ反映
 ============================ */
 
-function setText(id, value) {
+function setYen(id, value) {
   const el = document.getElementById(id);
   if (el) el.textContent = value.toLocaleString() + "円";
 }
 
-// 共用品
-setText("common-total", commonTotal);
-setText("common-per", commonPerPerson);
+setYen("common-total", commonTotal);
+setYen("common-per", commonPerPerson);
 
-// マーダーミステリー
-setText("murder-total", murderMystery);
-setText("murder-per", murderPerPerson);
+setYen("murder-total", murderMystery);
+setYen("murder-per", murderPerPerson);
 
-// 最終総額（2パターン）
-setText("p1-mitani", pattern1_mitani);
-setText("p1-special", pattern1_special);
-setText("p1-others", pattern1_others);
+setYen("fare-total", fare_total);
+setYen("transport-per", transportPerPerson);
 
-setText("p2-mitani", pattern2_mitani);
-setText("p2-others", pattern2_others);
-
+setYen("total-per", totalPerPerson);
 
 /* ============================
    アコーディオン
@@ -253,25 +222,16 @@ setText("p2-others", pattern2_others);
 const accordions = document.querySelectorAll(".accordion-header");
 
 accordions.forEach((header) => {
-
   header.addEventListener("click", function () {
-
     const content = this.nextElementSibling;
-
     if (!content) return;
 
     if (content.classList.contains("open")) {
-
       content.classList.remove("open");
       content.style.maxHeight = null;
-
     } else {
-
       content.classList.add("open");
       content.style.maxHeight = content.scrollHeight + "px";
-
     }
-
   });
-
 });

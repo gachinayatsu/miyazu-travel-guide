@@ -16,17 +16,19 @@ body {
 ============================ */
 
 .section {
-  padding: 40px 20px;
+  padding: 50px 20px;
   margin: 0;
   position: relative;
   overflow: hidden;
 
   transform: translateY(20px);
-  transition: transform 0.8s ease;
+  transition: transform 0.8s ease, opacity 0.8s ease;
+  opacity: 0;
 }
 
 .section.fade-in {
   transform: translateY(0);
+  opacity: 1;
 }
 
 /* ============================
@@ -54,7 +56,7 @@ h2 {
 .hero-overlay {
   background: rgba(255,255,255,.6);
   padding: 20px 30px;
-  border-radius: 12px;
+  border-radius: 16px;
   backdrop-filter: blur(6px);
   text-align: center;
 }
@@ -131,8 +133,9 @@ h2 {
   width: 100%;
   border-collapse: collapse;
   background: #fff;
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,.05);
 }
 
 .table th,
@@ -168,7 +171,7 @@ h2 {
 
 .accordion {
   margin: 20px 0;
-  border-radius: 12px;
+  border-radius: 14px;
   background: #ffffff;
   box-shadow: 0 2px 6px rgba(0,0,0,.08);
   overflow: hidden;
@@ -182,11 +185,17 @@ h2 {
   background: #f7f9fc;
   border: none;
   cursor: pointer;
-  transition: background .3s;
+  transition: background .3s, border-left .3s;
+  border-left: 6px solid transparent;
 }
 
 .accordion-header:hover {
   background: #eef4ff;
+}
+
+.accordion-header.active {
+  background: #eaf3ff;
+  border-left: 6px solid #6aa6ff;
 }
 
 .accordion-content {
