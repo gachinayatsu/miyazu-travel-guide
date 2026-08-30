@@ -1,41 +1,37 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>毎年恒例　マダミス会 しおり</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>宮津旅行しおり（2026）</title>
+
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-  <!-- ヒーローセクション（タイトル・日程） -->
-  <header class="hero">
-    <div class="hero-overlay">
-      <h1>毎年恒例　マダミス会しおり</h1>
-      <p>日程：2026年9月20日〜22日（3日間）</p>
-      <p>行き先：京都府宮津市 / 天橋立周辺</p>
-    </div>
-  </header>
+<!-- ============================
+     0. 目次（ナビ）
+============================ -->
+<nav class="main-nav">
+  <ul>
+    <li><a href="#overview">概要</a></li>
+    <li><a href="#members">参加者一覧</a></li>
+    <li><a href="#schedule">スケジュール</a></li>
+    <li><a href="#timetable">新幹線・特急の時刻</a></li>
+    <li><a href="#transport">移動手段</a></li>
+    <li><a href="#stay">宿泊先情報</a></li>
+    <li><a href="#packing">持ち物リスト</a></li>
+    <li><a href="#mitani-items">三谷専用の持ち物</a></li>
+    <li><a href="#games">ボードゲーム一覧</a></li>
+    <li><a href="#rentalcar">レンタカー情報</a></li>
+    <li><a href="#costs">費用一覧</a></li>
+  </ul>
+</nav>
 
-  <!-- 目次ナビゲーション -->
-  <nav class="main-nav">
-    <ul>
-      <li><a href="#overview">概要</a></li>
-      <li><a href="#members">参加者一覧</a></li>
-      <li><a href="#schedule">スケジュール</a></li>
-      <li><a href="#games">持っていくボードゲーム</a></li>
-      <li><a href="#stay">宿泊先情報</a></li>
-      <li><a href="#transport">移動手段</a></li>
-      <li><a href="#timetable">新幹線・特急の時刻</a></li>
-      <li><a href="#rentalcar">レンタカー情報</a></li>
-      <li><a href="#packing">持ち物リスト</a></li>
-      <li><a href="#costs">費用一覧</a></li>
-      <li><a href="#maps">地図リンク</a></li>
-      <li><a href="#gallery">写真ギャラリー</a></li>
-    </ul>
-  </nav>
-
-<!-- 概要 -->
+<!-- ============================
+     1. 概要
+============================ -->
 <section id="overview" class="section section-sky">
   <h2>概要</h2>
   <p>
@@ -45,7 +41,9 @@
   </p>
 </section>
 
-<!-- 参加者一覧 -->
+<!-- ============================
+     2. 参加者一覧
+============================ -->
 <section id="members" class="section section-clouds">
   <h2>参加者一覧</h2>
   <ul class="members-list">
@@ -59,15 +57,17 @@
   </ul>
 </section>
 
-<!-- スケジュール -->
+<!-- ============================
+     3. スケジュール
+============================ -->
 <section id="schedule" class="section section-forest">
   <h2>スケジュール</h2>
 
   <h3>1日目（9月20日）</h3>
   <ul>
-    <li>岡山駅集合 → 新幹線で京都駅へ</li>
-    <li>京都駅周辺で観光（9:00〜12:30）</li>
-    <li>京都駅 → 特急はしだてで宮津駅へ（直通）</li>
+    <li>岡山駅集合 → 新幹線で京都駅へ（9:11着）</li>
+    <li>京都駅周辺で観光（9:11〜12:25）</li>
+    <li>京都駅 → 特急はしだてで宮津駅へ（14:21着）</li>
     <li>宮津駅でレンタカーを借りて宿泊先へ</li>
     <li>チェックイン後、ボードゲームなどでゆったり過ごす</li>
   </ul>
@@ -81,11 +81,118 @@
   <h3>3日目（9月22日）</h3>
   <ul>
     <li>チェックアウト</li>
-    <li>宮津駅 → 京都駅 → 岡山駅へ帰宅</li>
+    <li>宮津駅 → 京都駅（12:07着） → 岡山駅（20:05着）へ帰宅</li>
   </ul>
 </section>
 
-<!-- ボードゲーム（アコーディオン） -->
+<!-- ============================
+     4. 新幹線・特急の時刻
+============================ -->
+<section id="timetable" class="section section-clouds">
+  <h2>新幹線・特急の時刻</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>区間</th>
+        <th>列車種別</th>
+        <th>発車時刻</th>
+        <th>到着時刻</th>
+        <th>日付</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <!-- 行き -->
+      <tr>
+        <td>岡山 → 京都</td>
+        <td>新幹線</td>
+        <td>08:07</td>
+        <td>09:11</td>
+        <td>9月20日</td>
+      </tr>
+
+      <tr>
+        <td>京都 → 宮津</td>
+        <td>特急はしだて（直通）</td>
+        <td>12:25</td>
+        <td>14:21</td>
+        <td>9月20日</td>
+      </tr>
+
+      <!-- 帰り -->
+      <tr>
+        <td>宮津 → 京都</td>
+        <td>特急はしだて</td>
+        <td>10:05</td>
+        <td>12:07</td>
+        <td>9月22日</td>
+      </tr>
+
+      <tr>
+        <td>京都 → 岡山</td>
+        <td>新幹線</td>
+        <td>19:02</td>
+        <td>20:05</td>
+        <td>9月22日</td>
+      </tr>
+
+    </tbody>
+  </table>
+</section>
+
+<!-- ============================
+     5. 移動手段
+============================ -->
+<section id="transport" class="section section-sky">
+  <h2>移動手段</h2>
+  <ul>
+    <li>岡山駅 → 京都駅：新幹線</li>
+    <li>京都駅 → 宮津駅：特急はしだて（直通）</li>
+    <li>宮津駅 → 宿泊先：レンタカー</li>
+    <li>帰りも同じ手段</li>
+  </ul>
+</section>
+
+<!-- ============================
+     6. 宿泊先情報
+============================ -->
+<section id="stay" class="section section-sea">
+  <h2>宿泊先情報</h2>
+  <ul>
+    <li>宿泊先名：Airbnb(宮津市の一軒家)</li>
+    <li>
+      住所：〒626-0225 京都府宮津市日置3560-32<br>
+      <a href="https://www.google.com/maps/place/〒626-0225+京都府宮津市日置3560−32" target="_blank">
+        Googleマップで開く
+      </a>
+    </li>
+    <li>チェックイン：2026/09/20 15:00</li>
+    <li>チェックアウト：2026/09/22 10:00</li>
+  </ul>
+</section>
+
+<!-- ============================
+     7. 持ち物リスト（共通）
+============================ -->
+<section id="packing" class="section section-trees">
+  <h2>持ち物リスト</h2>
+  <p>チェックするとブラウザに保存されます。</p>
+  <ul id="packing-list" class="packing-list"></ul>
+</section>
+
+<!-- ============================
+     8. 三谷専用の持ち物
+============================ -->
+<section id="mitani-items" class="section section-forest">
+  <h2>三谷専用の持ち物</h2>
+  <ul id="mitani-list"></ul>
+</section>
+
+<!-- ============================
+     9. ボードゲーム一覧（アコーディオン）
+============================ -->
 <section id="games" class="section section-white">
   <h2>持っていくボードゲーム</h2>
 
@@ -104,7 +211,7 @@
     <div class="accordion-item">
       <button class="accordion-header">犯人は踊る</button>
       <div class="accordion-content">
-        <p>犯人カードを持っているのは誰か？軽量で盛り上がる推理系カードゲーム。</p>
+        <p>軽量で盛り上がる推理系カードゲーム。</p>
       </div>
     </div>
 
@@ -118,14 +225,14 @@
     <div class="accordion-item">
       <button class="accordion-header">ito</button>
       <div class="accordion-content">
-        <p>価値観で数字を並べる協力ゲーム。会話が盛り上がる。</p>
+        <p>価値観で数字を並べる協力ゲーム。</p>
       </div>
     </div>
 
     <div class="accordion-item">
       <button class="accordion-header">私の名前は佐藤です。</button>
       <div class="accordion-content">
-        <p>名前を使った心理戦が楽しいコミュニケーションゲーム。</p>
+        <p>名前を使った心理戦が楽しいゲーム。</p>
       </div>
     </div>
 
@@ -139,7 +246,7 @@
     <div class="accordion-item">
       <button class="accordion-header">YESマンを探せ</button>
       <div class="accordion-content">
-        <p>YESしか言えない人を推理するパーティゲーム。</p>
+        <p>YESしか言えない人を推理するゲーム。</p>
       </div>
     </div>
 
@@ -153,7 +260,7 @@
     <div class="accordion-item">
       <button class="accordion-header">え？実は〇〇なんですか</button>
       <div class="accordion-content">
-        <p>暴露系の質問ゲーム。盛り上がる。</p>
+        <p>暴露系の質問ゲーム。</p>
       </div>
     </div>
 
@@ -167,7 +274,7 @@
     <div class="accordion-item">
       <button class="accordion-header">ペチャリブレ</button>
       <div class="accordion-content">
-        <p>お題に沿って語彙力で戦うゲーム。</p>
+        <p>語彙力で戦うお題系ゲーム。</p>
       </div>
     </div>
 
@@ -181,54 +288,9 @@
   </div>
 </section>
 
-
-<!-- 宿泊先情報 -->
-<section id="stay" class="section section-sea">
-  <h2>宿泊先情報</h2>
-  <ul>
-    <li>宿泊先名：Airbnb(宮津市の一軒家)</li>
-    <li>
-      住所：〒626-0225 京都府宮津市日置3560-32<br>
-      <a href="https://www.google.com/maps/place/〒626-0225+京都府宮津市日置3560−32" target="_blank">
-        Googleマップで開く
-      </a>
-    </li>
-    <li>チェックイン：2026/09/20 15:00</li>
-    <li>チェックアウト：2026/09/22 10:00</li>
-  </ul>
-</section>
-
-<!-- 移動手段 -->
-<section id="transport" class="section section-sky">
-  <h2>移動手段</h2>
-  <ul>
-    <li>岡山駅 → 京都駅：新幹線</li>
-    <li>京都駅 → 宮津駅：特急はしだて（直通）</li>
-    <li>宮津駅 → 宿泊先：レンタカー</li>
-    <li>帰りも同じ手段</li>
-  </ul>
-</section>
-<section id="packing" class="section section-trees">
-  <h2>持ち物リスト</h2>
-  <p>チェックするとブラウザに保存されます。</p>
-  <ul id="packing-list" class="packing-list"></ul>
-</section>
-<section id="mitani-items" class="section section-forest">
-  <h2>三谷専用の持ち物</h2>
-  <ul id="mitani-list"></ul>
-</section>
-
-
-<!-- 共用品（最小構成） -->
-<section id="packing" class="section section-trees">
-  <h2>共用品（買って持っていくもの）</h2>
-  <ul>
-    <li>虫除けスプレー（555円）</li>
-    <li>アルコールウェットティッシュ（382円）</li>
-  </ul>
-</section>
-
-<!-- レンタカー情報 -->
+<!-- ============================
+     10. レンタカー情報
+============================ -->
 <section id="rentalcar" class="section section-forest">
   <h2>レンタカー情報</h2>
   <ul>
@@ -244,6 +306,9 @@
   </ul>
 </section>
 
+<!-- ============================
+     11. 費用一覧（script.jsで自動計算）
+============================ -->
 <section id="costs" class="section section-white">
   <h2>費用一覧</h2>
   <p>金額は自動計算されます。</p>
@@ -260,23 +325,20 @@
 
     <tbody>
 
-      <!-- 共用品 -->
       <tr>
         <td>共用品</td>
         <td id="common-total"></td>
         <td id="common-per"></td>
-        <td>虫除けスプレー（555円）・アルコールウェットティッシュ（382円）</td>
+        <td>虫除けスプレー・アルコールウェットティッシュ</td>
       </tr>
 
-      <!-- マーダーミステリー -->
       <tr>
         <td>マーダーミステリー</td>
         <td id="murder-total"></td>
         <td id="murder-per"></td>
-        <td>奇想、アムネジア（3342円／7人割り）</td>
+        <td>奇想、アムネジア（7人割り）</td>
       </tr>
 
-      <!-- 宿泊費 -->
       <tr>
         <td>宿泊費</td>
         <td>175,605円</td>
@@ -284,15 +346,13 @@
         <td>Airbnb 2泊（7人割り）</td>
       </tr>
 
-      <!-- レンタカー -->
       <tr>
         <td>レンタカー</td>
         <td>46,860円</td>
         <td>6,694円</td>
-        <td>ニッポンレンタカー（3日間・7人割り）</td>
+        <td>3日間（7人割り）</td>
       </tr>
 
-      <!-- 交通費（新幹線＋特急＋乗車券） -->
       <tr>
         <td>交通費（新幹線・特急・乗車券）</td>
         <td id="fare-total"></td>
@@ -304,7 +364,6 @@
         </td>
       </tr>
 
-      <!-- 一人あたり総額 -->
       <tr>
         <td><strong>一人あたり総額</strong></td>
         <td>--</td>
@@ -316,91 +375,6 @@
   </table>
 </section>
 
-
-<!-- 地図リンク -->
-<section id="maps" class="section section-sea">
-  <h2>地図リンク</h2>
-  <ul>
-    <!-- 駅 -->
-    <li>
-      <a href="https://www.google.com/maps/place/天橋立駅" target="_blank">
-        天橋立駅
-      </a>
-    </li>
-    <li>
-      <a href="https://www.google.com/maps/place/宮津駅" target="_blank">
-        宮津駅
-      </a>
-    </li>
-    <li>
-      <a href="https://www.google.com/maps/place/京都駅" target="_blank">
-        京都駅
-      </a>
-    </li>
-    <li>
-      <a href="https://www.google.com/maps/place/岡山駅" target="_blank">
-        岡山駅
-      </a>
-    </li>
-
-    <!-- スーパー（にしがき） -->
-    <li>
-      <a href="https://www.google.com/maps/place/京都府宮津市鶴賀2160-3+にしがき+宮津店" target="_blank">
-        にしがき 宮津店（京都府宮津市鶴賀2160-3）
-      </a>
-    </li>
-    <li>
-      <a href="https://www.google.com/maps/place/京都府宮津市江尻64+にしがき+府中店" target="_blank">
-        にしがき 府中店（京都府宮津市江尻64）
-      </a>
-    </li>
-
-    <!-- コンビニ -->
-    <li>
-      <a href="https://www.google.com/maps/place/ファミリーマート+宮津日置店" target="_blank">
-        ファミリーマート 宮津日置店（京都府宮津市日置大田3953-1 他2筆）
-      </a>
-    </li>
-
-    <!-- レンタカー（別住所） -->
-    <li>
-      <a href="https://www.google.com/maps/place/ニッポンレンタカー+宮津天橋立+営業所" target="_blank">
-        ニッポンレンタカー 宮津天橋立 営業所（京都府宮津市字鶴賀2060-40）
-      </a>
-    </li>
-
-    <!-- 宿泊先（別住所：日置3560-32） -->
-    <li>
-      <a href="https://www.google.com/maps/place/〒626-0225+京都府宮津市日置3560−32" target="_blank">
-        宿泊先（京都府宮津市日置3560-32）
-      </a>
-    </li>
-  </ul>
-</section>
-
-
-
-<!-- 写真ギャラリーへのリンク -->
-<section id="gallery" class="section section-sky">
-  <h2>写真ギャラリー</h2>
-
-  <p>旅行後に作成する Googleフォト共有アルバムへのリンクをここに貼ります。</p>
-
-  <!-- Googleフォト共有アルバム（後でURLを追加） -->
-  <p>
-    <a href="#" id="google-photo-link" target="_blank">
-      Googleフォト共有アルバムを開く（後でURLを追加）
-    </a>
-  </p>
-
-  <!-- サイト内ギャラリー -->
-  <p>
-    <a href="gallery.html">写真ギャラリーを見る（サイト内ページ）</a>
-  </p>
-</section>
-
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
-
