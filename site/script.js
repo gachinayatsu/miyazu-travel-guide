@@ -215,6 +215,11 @@ setYen("transport-per", transportPerPerson);
 
 setYen("total-per", totalPerPerson);
 
+document.getElementById("total-per-discount").textContent =
+  (totalPerPerson - 6200).toLocaleString() + "円";
+
+
+
 /* ============================
    アコーディオン
 ============================ */
