@@ -93,52 +93,94 @@
 
     <div class="accordion-item">
       <button class="accordion-header">奇想、アムネジア（マーダーミステリー）</button>
-      <div class="accordion-body">
+      <div class="accordion-content">
         <p>
           山奥の別荘「魔術館」で起きた爆発事件。<br>
-          名マジシャンたちが秘密を抱えたまま真相に挑む重量級マーダーミステリー。<br>
-          トリック・思惑・策略が幾重にも絡み合う緊張感ある物語。
+          名マジシャンたちが秘密を抱えたまま真相に挑む重量級マーダーミステリー。
         </p>
       </div>
     </div>
 
     <div class="accordion-item">
       <button class="accordion-header">犯人は踊る</button>
-      <div class="accordion-body">
+      <div class="accordion-content">
         <p>犯人カードを持っているのは誰か？軽量で盛り上がる推理系カードゲーム。</p>
       </div>
     </div>
 
     <div class="accordion-item">
       <button class="accordion-header">テストプレイなんてしてないよゴールド</button>
-      <div class="accordion-body">
+      <div class="accordion-content">
         <p>理不尽と爆笑がテーマの超カオス系カードゲーム。</p>
       </div>
     </div>
 
     <div class="accordion-item">
       <button class="accordion-header">ito</button>
-      <div class="accordion-body">
-        <p>数字を言わずに価値観で並べる協力ゲーム。会話が盛り上がる。</p>
+      <div class="accordion-content">
+        <p>価値観で数字を並べる協力ゲーム。会話が盛り上がる。</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header">私の名前は佐藤です。</button>
+      <div class="accordion-content">
+        <p>名前を使った心理戦が楽しいコミュニケーションゲーム。</p>
       </div>
     </div>
 
     <div class="accordion-item">
       <button class="accordion-header">ジャストワン</button>
-      <div class="accordion-body">
-        <p>お題に対して1語ヒントを出す協力ゲーム。シンプルで楽しい。</p>
+      <div class="accordion-content">
+        <p>1語ヒントで答えを導く協力ゲーム。</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header">YESマンを探せ</button>
+      <div class="accordion-content">
+        <p>YESしか言えない人を推理するパーティゲーム。</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header">R18</button>
+      <div class="accordion-content">
+        <p>大人向けのワード系ゲーム。</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header">え？実は〇〇なんですか</button>
+      <div class="accordion-content">
+        <p>暴露系の質問ゲーム。盛り上がる。</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header">サンレンタン</button>
+      <div class="accordion-content">
+        <p>競馬風の数字推理ゲーム。</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-header">ペチャリブレ</button>
+      <div class="accordion-content">
+        <p>お題に沿って語彙力で戦うゲーム。</p>
       </div>
     </div>
 
     <div class="accordion-item">
       <button class="accordion-header">モルック</button>
-      <div class="accordion-body">
+      <div class="accordion-content">
         <p>屋外で遊べるフィンランド発のスポーツ系ゲーム。</p>
       </div>
     </div>
 
   </div>
 </section>
+
 
 <!-- 宿泊先情報 -->
 <section id="stay" class="section section-sea">
@@ -166,6 +208,16 @@
     <li>帰りも同じ手段</li>
   </ul>
 </section>
+<section id="packing" class="section section-trees">
+  <h2>持ち物リスト</h2>
+  <p>チェックするとブラウザに保存されます。</p>
+  <ul id="packing-list" class="packing-list"></ul>
+</section>
+<section id="mitani-items" class="section section-forest">
+  <h2>三谷専用の持ち物</h2>
+  <ul id="mitani-list"></ul>
+</section>
+
 
 <!-- 共用品（最小構成） -->
 <section id="packing" class="section section-trees">
@@ -192,7 +244,6 @@
   </ul>
 </section>
 
-<!-- 費用一覧（script.jsで反映） -->
 <section id="costs" class="section section-white">
   <h2>費用一覧</h2>
   <p>金額は自動計算されます。</p>
@@ -208,50 +259,63 @@
     </thead>
 
     <tbody>
+
+      <!-- 共用品 -->
       <tr>
         <td>共用品</td>
         <td id="common-total"></td>
         <td id="common-per"></td>
-        <td>虫除けスプレー・アルコールウェットティッシュ</td>
+        <td>虫除けスプレー（555円）・アルコールウェットティッシュ（382円）</td>
       </tr>
 
+      <!-- マーダーミステリー -->
       <tr>
         <td>マーダーミステリー</td>
         <td id="murder-total"></td>
         <td id="murder-per"></td>
-        <td>奇想、アムネジア（7人割り）</td>
+        <td>奇想、アムネジア（3342円／7人割り）</td>
       </tr>
 
+      <!-- 宿泊費 -->
       <tr>
         <td>宿泊費</td>
         <td>175,605円</td>
         <td>25,086円</td>
-        <td>2泊分（7人割り）</td>
+        <td>Airbnb 2泊（7人割り）</td>
       </tr>
 
+      <!-- レンタカー -->
       <tr>
         <td>レンタカー</td>
         <td>46,860円</td>
         <td>6,694円</td>
-        <td>3日間（7人割り）</td>
+        <td>ニッポンレンタカー（3日間・7人割り）</td>
       </tr>
 
+      <!-- 交通費（新幹線＋特急＋乗車券） -->
       <tr>
         <td>交通費（新幹線・特急・乗車券）</td>
         <td id="fare-total"></td>
         <td id="transport-per"></td>
-        <td>乗車券は三谷＋付き添いが半額</td>
+        <td>
+          新幹線：4760円 × 往復<br>
+          特急はしだて：3080円 × 往復<br>
+          乗車券：通常 6200円 × 往復 × 5名、割引 3100円 × 往復 × 2名
+        </td>
       </tr>
 
+      <!-- 一人あたり総額 -->
       <tr>
         <td><strong>一人あたり総額</strong></td>
         <td>--</td>
-        <td><span id="total-per"></span></td>
+        <td><strong id="total-per"></strong></td>
         <td>全項目の合計</td>
       </tr>
+
     </tbody>
   </table>
 </section>
+
 
 <!-- 地図リンク -->
 <section id="maps" class="section section-sea">

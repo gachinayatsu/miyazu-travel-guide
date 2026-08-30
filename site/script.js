@@ -229,9 +229,11 @@ accordions.forEach((header) => {
     if (content.classList.contains("open")) {
       content.classList.remove("open");
       content.style.maxHeight = null;
+      this.classList.remove("active");
     } else {
       content.classList.add("open");
       content.style.maxHeight = content.scrollHeight + "px";
+      this.classList.add("active");
     }
   });
 });
